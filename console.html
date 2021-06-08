@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Асинхронность</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <h1>Домашнее задание по теме "Асинхронность"</h1>
+        <h2>Минаков Сергей — Вариант 3</h2>
+        <p>Посмотрите код страницы и вывод в консоль браузера.</p>
+        <a href="https://yandex.ru/">
+            <img class="yandex_logo" src="https://yastatic.net/s3/web4static/_/v2/ILFmOIJ8woHVcXPynY5R8UCSfME.svg">
+        </a>
+        <script src="./shri-async-hw.js"></script>
+        <script src="./sum-vectors.js"></script>
+        <script>
+            const {AsyncArray} = Homework;
+            
+            let a = new AsyncArray([2, 8, 3]);
+            console.log("Создан вектор 1");
+            a.print();
+
+            let b = new AsyncArray([6, 7, 1]);
+            console.log("Создан вектор 2");
+            b.print();
+
+            let c = new AsyncArray([3, 0, 9]);
+            console.log("Создан вектор 3");
+            c.print();
+
+            let d = new AsyncArray([1, 2, 3 ,4]);
+            console.log("Создан вектор 4");
+            d.print();
+
+            console.log("");
+            
+            console.log("1. Вызвана функция sumVectors(a, b, callback)");
+            sumVectors(a, b, (result) => {
+                console.log("1. Сложены векторы 1 и 2");
+                result.print();
+            });
+
+            console.log("2. Вызвана функция sumVectors(a, c, callback)");
+            sumVectors(a, c, (result) => {
+                console.log("2. Сложены векторы 1 и 3");
+                result.print();
+            });
+
+            console.log("3. Вызвана функция sumVectors(b, c, callback)");
+            sumVectors(b, c, (result) => {
+                console.log("3. Сложены векторы 2 и 3");
+                result.print();
+            });
+
+            console.log("4. Вызвана функция sumVectors(a, d, callback) - будет ошибка");
+            sumVectors(a, d, (result) => {
+                console.log("4. Сложены векторы 1 и 4");
+                result.print();
+            });
+
+            console.log("");
+        </script>
+    </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Асинхронность</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <h1>Домашнее задание по теме "Асинхронность"</h1>
+        <h2>Минаков Сергей — Вариант 3</h2>
+        <p>
+            Реализацию функции <span style="color: #3a76b6;">sumVectors(</span><span style="color: #f7555a;">vec1</span>, <span style="color: #f7555a;">vec2</span>, <span style="color: #f7555a;">callback</span><span style="color: #3a76b6;">)</span> можно найти в файле <a href="./sum-vectors.js">sum-vectors.js</a>.
+            Ниже можно проверить работу функции через интерфейс.
+            Результат вычеслений выводится в текстовое поле, а ошибки в консоль.
+        </p>
+        <form id="vectorSumDemo" onsubmit="return false">
+            <div class="input_group">
+                <label for="firstVector">Первый вектор:</label>
+                <input type="text" id="firstVector" value="1, 0, 5" autocomplete="off">
+            </div>
+            <div class="input_group">
+                <label for="secondVector">Второй вектор:</label>
+                <input type="text" id="secondVector" value="3, 2, 1" autocomplete="off">
+            </div>
+            <div class="input_group">
+                <label>Результат:</label>
+                <input type="text" id="resultVector" readonly>
+            </div>
+            <button>Посчитать сумму</button>
+        </form>
+        <a href="https://yandex.ru/">
+            <img class="yandex_logo" src="https://yastatic.net/s3/web4static/_/v2/ILFmOIJ8woHVcXPynY5R8UCSfME.svg">
+        </a>
+        <script src="./shri-async-hw.js"></script>
+        <script src="./sum-vectors.js"></script>
+        <script>
+            const {AsyncArray} = Homework;
+
+            const vectorSumDemo = document.getElementById("vectorSumDemo");
+            const firstVectorInput = document.getElementById("firstVector");
+            const secondVectorInput = document.getElementById("secondVector");
+            const resultVectorInput = document.getElementById("resultVector");
+
+            let firstVector = new AsyncArray([]);
+            let secondVector = new AsyncArray([]);
+
+            vectorSumDemo.addEventListener("submit", () => {
+                try {
+                    firstVector = new AsyncArray(
+                        eval(`[${firstVectorInput.value}]`)
+                    );
+                } catch {
+                    alert("Неверно задан первый вектор!");
+                };
+
+                try {
+                    secondVector = new AsyncArray(
+                        eval(`[${secondVectorInput.value}]`)
+                    );
+                } catch {
+                    alert("Неверно задан второй вектор!");
+                };
+                
+                sumVectors(firstVector, secondVector, (result) => {
+                    // Перехват того, что должно вывестесь в консоли
+                    console = {
+                        log: (msg) => {
+                            resultVectorInput.value = msg;
+                        }
+                    };
+
+                    result.print();
+                });
+            });
+
+
+        </script>
+    </body>
+</html>

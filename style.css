@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    box-sizing: border-box;
+}
+
+.yandex_logo {
+    width: 7rem;
+    top: auto;
+    right: 2rem;
+    bottom: 1rem;
+    position: absolute;
+}
+
+h1 {
+    margin: 1.5rem 1.5rem 0.5rem;
+    font-size: 2.75rem;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+h2 {
+    margin: 0.5rem 1.5rem 2rem;
+    font-size: 1.75rem;
+    font-weight: 300;
+}
+
+p {
+    margin: 0.5rem 1.5rem;
+    max-width: 46rem;
+    line-height: 1.5;
+}
+
+form {
+    margin: 1.5rem;
+}
+
+input {
+    box-sizing: border-box;
+    width: 12rem;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    vertical-align: top;
+    border: 2px solid #bbb;
+    outline: 0;
+    background: none;
+}
+
+input:focus {
+    border-color: #fecb2f;
+}
+
+input:focus:not([readonly]) {
+    border-color: #fecb2f;
+}
+
+input[readonly] {
+    border: 2px solid #eee;
+}
+
+button {
+    background-color: #ffdb4d;
+    margin-top: 1rem;
+    padding: 0.75rem 1.25rem;
+    border: 0 solid transparent;
+    outline: 0;
+    border-radius: 3px;
+    font-size: 1.1rem;
+    user-select: none;
+    cursor: pointer;
+}
+
+button:hover,
+button:focus-visible{
+    background-color: #ffd324;
+}
+
+.input_group {
+    width: 21.5rem;
+    padding: 0.25rem;
+    font-size: 1.15rem;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+}
+
+.input_group label {
+    margin-right: 0.5rem;
+}
